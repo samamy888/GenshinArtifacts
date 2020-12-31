@@ -7,13 +7,13 @@
         爆級:
       </div>
       <div class='col-md-3'>
-        <input :value="CriticalRate">
+        <input v-model="CriticalRate">
       </div>
       <div class='col-md-2'>
         爆傷:
       </div>
       <div class='col-md-3'>
-        <input :value="CriticalDamage">
+        <input v-model="CriticalDamage">
       </div>
       <div class='col-md-2'>
         分數: {{Score}}
@@ -25,13 +25,13 @@
         爆級:
       </div>
       <div class='col-md-3'>
-        <input :value="CriticalRate2">
+        <input v-model="CriticalRate2">
       </div>
       <div class='col-md-2'>
         爆傷:
       </div>
       <div class='col-md-3'>
-        <input :value="CriticalDamage2">
+        <input v-model="CriticalDamage2">
       </div>
       <div class='col-md-2'>
         分數: {{Score2}}
