@@ -4,54 +4,70 @@
     <div class='row'>裝備1</div>
     <div class='row'>
       <div class='col-md-2'>
-        爆級:
+        攻擊:
+         <input class="form-control" v-model="Equipment[0].ATK">
       </div>
-      <div class='col-md-3'>
-        <input v-model="CriticalRate">
+      <div class='col-md-2'>
+        爆級:
+         <input class="form-control" v-model="Equipment[0].CriticalRate">
       </div>
       <div class='col-md-2'>
         爆傷:
+         <input class="form-control" v-model="Equipment[0].CriticalDamage">
       </div>
-      <div class='col-md-3'>
-        <input v-model="CriticalDamage">
+       <div class='col-md-2'>
+        元素傷害:
+         <input class="form-control" v-model="Equipment[0].ElementalDamage">
       </div>
       <div class='col-md-2'>
+        <br/>
         分數: {{Score}}
       </div>
     </div>
     <div class='row'>裝備2</div>
     <div class='row'>
+       <div class='col-md-2'>
+        攻擊:
+         <input class="form-control" v-model="Equipment[1].ATK">
+      </div>
      <div class='col-md-2'>
         爆級:
-      </div>
-      <div class='col-md-3'>
-        <input v-model="CriticalRate2">
+         <input class="form-control" v-model="Equipment[1].CriticalRate">
       </div>
       <div class='col-md-2'>
         爆傷:
+         <input class="form-control" v-model="Equipment[1].CriticalDamage">
       </div>
-      <div class='col-md-3'>
-        <input v-model="CriticalDamage2">
+       <div class='col-md-2'>
+        元素傷害:
+         <input class="form-control" v-model="Equipment[1].ElementalDamage">
       </div>
       <div class='col-md-2'>
+         <br/>
         分數: {{Score2}}
       </div>
     </div>
+
+    <div class='row'>
+        提升: {{FinalScore}} 倍
+    </div>
     <div class='row'>結果: (裝備1/裝備2)</div>
     <div class='row'>
-     <div class='col-md-2'>
-        分數: {{Score/Score2}}
-      </div>
-    </div>
-    <div class='row'>
-    </div>
-    <div class='row'>
-      公式:(1+(爆級*爆傷))
+      公式: 攻擊力*(1+(爆級*爆傷))*(1+元素傷)
     </div>
   </div>
 </template>
 
 <script>
+
+import { cloneDeep,round } from 'lodash';
+
+let model ={
+  ATK:1,
+  CriticalRate:0.1,
+  CriticalDamage:2,
+  ElementalDamage:0.1,
+}
 export default {
   name: 'ComparePage',
   props: {
@@ -59,19 +75,38 @@ export default {
   },
   data(){
     return {
-      CriticalRate:0.1,
-      CriticalDamage:2,
-      CriticalRate2:0.1,
-      CriticalDamage2:2,
+      Equipment:[
+        cloneDeep(model) ,
+        cloneDeep(model)],
     }
   },
   computed:{
     Score(){
-      return Number(1+(this.CriticalRate*this.CriticalDamage));
+      return round(
+        Number(
+          this.Equipment[0].ATK*
+          (1+(this.Equipment[0].CriticalRate*this.Equipment[0].CriticalDamage))*
+          (1+this.Equipment[0].ElementalDamage)
+        ),2
+      );
     },
     Score2(){
-      return Number(1+(this.CriticalRate2*this.CriticalDamage2));
-    }
+      return round(
+        Number(
+          this.Equipment[1].ATK*
+          (1+(this.Equipment[1].CriticalRate*this.Equipment[1].CriticalDamage))*
+          (1+this.Equipment[1].ElementalDamage)
+        ),2
+      );
+    },
+    FinalScore(){
+      return round(
+        this.Score/this.Score2,2
+      );
+    },
+  },
+  methods(){
+
   }
 }
 </script>
