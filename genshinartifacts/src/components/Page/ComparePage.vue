@@ -8,15 +8,15 @@
          <input class="form-control" v-model="Equipment[0].ATK">
       </div>
       <div class='col-md-2'>
-        爆級:
+        爆級%:
          <input class="form-control" v-model="Equipment[0].CriticalRate">
       </div>
       <div class='col-md-2'>
-        爆傷:
+        爆傷%:
          <input class="form-control" v-model="Equipment[0].CriticalDamage">
       </div>
        <div class='col-md-2'>
-        元素傷害:
+        元素傷害%:
          <input class="form-control" v-model="Equipment[0].ElementalDamage">
       </div>
       <div class='col-md-2'>
@@ -31,15 +31,15 @@
          <input class="form-control" v-model="Equipment[1].ATK">
       </div>
      <div class='col-md-2'>
-        爆級:
+        爆級%:
          <input class="form-control" v-model="Equipment[1].CriticalRate">
       </div>
       <div class='col-md-2'>
-        爆傷:
+        爆傷%:
          <input class="form-control" v-model="Equipment[1].CriticalDamage">
       </div>
        <div class='col-md-2'>
-        元素傷害:
+        元素傷害%:
          <input class="form-control" v-model="Equipment[1].ElementalDamage">
       </div>
       <div class='col-md-2'>
@@ -64,9 +64,9 @@ import { cloneDeep,round } from 'lodash';
 
 let model ={
   ATK:1,
-  CriticalRate:0.1,
-  CriticalDamage:2,
-  ElementalDamage:0.1,
+  CriticalRate:10,
+  CriticalDamage:50,
+  ElementalDamage:0,
 }
 export default {
   name: 'ComparePage',
@@ -85,8 +85,8 @@ export default {
       return round(
         Number(
           this.Equipment[0].ATK*
-          (1+(this.Equipment[0].CriticalRate*this.Equipment[0].CriticalDamage))*
-          (1+this.Equipment[0].ElementalDamage)
+          (1+(this.Equipment[0].CriticalRate*this.Equipment[0].CriticalDamage)/10000)*
+          (1+Number(this.Equipment[0].ElementalDamage)/100)
         ),2
       );
     },
@@ -94,8 +94,8 @@ export default {
       return round(
         Number(
           this.Equipment[1].ATK*
-          (1+(this.Equipment[1].CriticalRate*this.Equipment[1].CriticalDamage))*
-          (1+this.Equipment[1].ElementalDamage)
+          (1+(this.Equipment[1].CriticalRate*this.Equipment[1].CriticalDamage)/10000)*
+          (1+Number(this.Equipment[1].ElementalDamage)/100)
         ),2
       );
     },
