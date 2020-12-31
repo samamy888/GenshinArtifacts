@@ -1,48 +1,47 @@
 <template>
-  <div class="container">
-    <h1>原神裝備比對</h1>
+  <div>
     <div class="row">裝備1</div>
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md">
         攻擊:
         <input class="form-control" v-model="Equipment[0].ATK" />
       </div>
-      <div class="col-md-2">
+      <div class="col-md">
         爆級%:
         <input class="form-control" v-model="Equipment[0].CriticalRate" />
       </div>
-      <div class="col-md-2">
+      <div class="col-md">
         爆傷%:
         <input class="form-control" v-model="Equipment[0].CriticalDamage" />
       </div>
-      <div class="col-md-2">
+      <div class="col-md">
         元素傷害%:
         <input class="form-control" v-model="Equipment[0].ElementalDamage" />
       </div>
-      <div class="col-md-2">
+      <div class="col-md">
         <br />
         分數: {{ Score }}
       </div>
     </div>
     <div class="row">裝備2</div>
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md">
         攻擊:
         <input class="form-control" v-model="Equipment[1].ATK" />
       </div>
-      <div class="col-md-2">
+      <div class="col-md">
         爆級%:
         <input class="form-control" v-model="Equipment[1].CriticalRate" />
       </div>
-      <div class="col-md-2">
+      <div class="col-md">
         爆傷%:
         <input class="form-control" v-model="Equipment[1].CriticalDamage" />
       </div>
-      <div class="col-md-2">
+      <div class="col-md">
         元素傷害%:
         <input class="form-control" v-model="Equipment[1].ElementalDamage" />
       </div>
-      <div class="col-md-2">
+      <div class="col-md">
         <br />
         分數: {{ Score2 }}
       </div>
@@ -51,7 +50,6 @@
     <div class="row">提升: {{ FinalScore }} 倍</div>
     <div class="row">結果: (裝備1/裝備2)</div>
     <div class="row">公式: 攻擊力*(1+(爆級*爆傷))*(1+元素傷)</div>
-    <div class="row">範例: 攻擊力1000</div>
   </div>
 </template>
 
@@ -108,3 +106,9 @@ export default {
   methods() {},
 };
 </script>
+
+<style scoped>
+.row{
+    margin-top: 20px;
+}
+</style>
