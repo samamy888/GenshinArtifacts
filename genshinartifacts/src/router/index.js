@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from "vue-router";
-import ComparePage from './components/Page/ComparePage.vue'
+import { createRouter, createWebHistory } from "vue-router"
+import ComparePage from '@/components/Page/ComparePage.vue'
 const routerHistory = createWebHistory();
 const routes = [
     {
@@ -7,6 +7,11 @@ const routes = [
       name: "ComparePage",
       component: ComparePage,
     },
+    {
+        path: "/ComparePage",
+        name: "ComparePage",
+        component: ComparePage,
+      },
   ];
 const router = createRouter({
   history: routerHistory,

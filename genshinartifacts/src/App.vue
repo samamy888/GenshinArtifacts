@@ -1,16 +1,20 @@
 <template>
-  <ComparePage/>
+  <div>
+    <SideBarMenu />
+    <ComparePage />
+  </div>
 </template>
 
 <script>
-import ComparePage from './components/Page/ComparePage.vue'
-
+import ComparePage from "./components/Page/ComparePage.vue";
+import SideBarMenu from "./components/Tool/SideBarMenu.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    ComparePage
-  }
-}
+    ComparePage,
+    SideBarMenu,
+  },
+};
 </script>
 
 <style>
@@ -20,6 +24,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  height: 100vh;
+  background-color: antiquewhite;
+}
+html,
+body {
+  margin: 0 !important;
+  padding: 0px !important;
 }
 </style>

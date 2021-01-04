@@ -1,9 +1,12 @@
 <template>
-  <div class="Card container">
-    <h1>{{Title}}</h1>
-    <div class="border"></div>
-    <div class="body">
-      <CompareModel />
+  <div>
+    <div style="padding-top: 5vh;"></div>
+    <div class="Card container">
+      <h1>{{ Title }}</h1>
+      <div class="border"></div>
+      <div class="body">
+        <CompareModel />
+      </div>
     </div>
   </div>
 </template>
@@ -14,11 +17,11 @@ export default {
   components: {
     CompareModel,
   },
-  data(){
-    return{
-      Title:"原神裝備比對"
-    }
-  }
+  data() {
+    return {
+      Title: "原神裝備比對",
+    };
+  },
 };
 </script>
 <style scoped>
@@ -27,7 +30,7 @@ export default {
   background-color: #fafafa;
   border-radius: 15px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  margin-top: 100px;
+  background-color: white;
 }
 .Card h1 {
   text-align: center;
