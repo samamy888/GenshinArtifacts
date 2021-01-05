@@ -5,21 +5,17 @@
       <h1>{{ Title }}</h1>
       <div class="border"></div>
       <div class="body">
-        <CompareModel />
+       
       </div>
     </div>
   </div>
 </template>
 <script>
-import CompareModel from "@/components/Model/CompareModel.vue";
 export default {
-  name: "ComparePage",
-  components: {
-    CompareModel,
-  },
+  name: "Home",
   data() {
     return {
-      Title: "一般裝備比對",
+      Title: "首頁",
     };
   },
 };

@@ -5,17 +5,17 @@
       <h1>{{ Title }}</h1>
       <div class="border"></div>
       <div class="body">
-        <CompareModel />
+        <MaidCompareModel />
       </div>
     </div>
   </div>
 </template>
 <script>
-import CompareModel from "@/components/Model/CompareModel.vue";
+import MaidCompareModel from "@/components/Model/MaidCompareModel.vue";
 export default {
   name: "MaidComparePage",
   components: {
-    CompareModel,
+    MaidCompareModel,
   },
   data() {
     return {

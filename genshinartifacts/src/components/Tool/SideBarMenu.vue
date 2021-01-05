@@ -9,12 +9,12 @@ export default {
       menu: [
         {
           header: true,
-          title: "Main Navigation",
+          title: "選單",
           hiddenOnCollapse: true,
         },
         {
           href: "/",
-          title: "Dashboard",
+          title: "首頁",
           icon: {
             element: "font-awesome-icon",
             attributes: {

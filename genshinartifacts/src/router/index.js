@@ -1,12 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router"
+import Home from '@/components/Page/HomePage.vue'
 import ComparePage from '@/components/Page/ComparePage.vue'
 import MaidComparePage from '@/components/Page/MaidComparePage.vue'
 const routerHistory = createWebHistory();
 const routes = [
   {
     path: "/",
-    name: "ComparePage",
-    component: ComparePage,
+    name: "Home",
+    component: Home,
   },
   {
     path: "/ComparePage",

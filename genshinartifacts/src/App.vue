@@ -1,17 +1,15 @@
 <template>
   <div>
     <SideBarMenu />
-    <ComparePage />
+    <router-view/>
   </div>
 </template>
 
 <script>
-import ComparePage from "./components/Page/ComparePage.vue";
 import SideBarMenu from "./components/Tool/SideBarMenu.vue";
 export default {
   name: "App",
   components: {
-    ComparePage,
     SideBarMenu,
   },
 };
