@@ -16,10 +16,10 @@ import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
 
 //fontawesome
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import * as fasIcons from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-library.add(faUserSecret)
 
+library.add(fasIcons.fas)
 
 const app = createApp(App);
 app.use(router);

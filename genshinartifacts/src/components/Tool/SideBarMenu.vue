@@ -19,7 +19,7 @@ export default {
             element: "font-awesome-icon",
             attributes: {
               // icon props:
-              icon: 'user-secret',
+              icon: 'home',
             },
           },
         },
@@ -30,7 +30,18 @@ export default {
             element: "font-awesome-icon",
             attributes: {
               // icon props:
-              icon: 'atlas',
+              icon: 'balance-scale',
+            },
+          },
+        },
+        {
+          href: "/MaidComparePage",
+          title: "女僕裝備比對",
+           icon: {
+            element: "font-awesome-icon",
+            attributes: {
+              // icon props:
+              icon: 'shield-alt',
             },
           },
         },
