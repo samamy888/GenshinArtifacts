@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="main">
+    <router-view />
     <SideBarMenu />
-    <router-view/>
   </div>
 </template>
 
@@ -24,10 +24,6 @@ export default {
   color: #2c3e50;
   height: 100vh;
   background-color: antiquewhite;
-}
-html,
-body {
-  margin: 0 !important;
-  padding: 0px !important;
+  padding: 0 0.5em 0 70px;
 }
 </style>

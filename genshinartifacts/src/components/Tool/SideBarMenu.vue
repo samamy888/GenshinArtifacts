@@ -1,5 +1,5 @@
 <template>
-  <sidebar-menu :menu="menu" :theme="'white-theme'" />
+  <sidebar-menu :menu="menu" :theme="'white-theme'" :collapsed="true" :show-one-child="true" />
 </template>
  
 <script>

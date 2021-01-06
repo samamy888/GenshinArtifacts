@@ -107,7 +107,7 @@
 
 <script>
 import { cloneDeep, round } from "lodash";
-let QLevelList = [40, 43, 46, 50, 53, 56, 60, 64, 68, 72, 76, 80, 75];
+let QLevelList = [40, 43, 46, 50, 53, 56, 60, 64, 68, 72, 76, 80, 85];
 let model = {
   ATK: 1000,
   Defense: 1000,

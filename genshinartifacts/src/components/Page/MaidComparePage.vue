@@ -7,15 +7,18 @@
       <div class="body">
         <MaidCompareModel />
       </div>
+      <!-- <ExportBtn/> -->
     </div>
   </div>
 </template>
 <script>
 import MaidCompareModel from "@/components/Model/MaidCompareModel.vue";
+// import ExportBtn from "@/components/Tool/ExportBtn.vue";
 export default {
   name: "MaidComparePage",
   components: {
     MaidCompareModel,
+    // ExportBtn,
   },
   data() {
     return {
