@@ -4,14 +4,15 @@
     :theme="'white-theme'"
     :collapsed="true"
     :show-one-child="true"
-  />
+  >
+    <template v-slot:toggle-icon>
+      <font-awesome-icon icon="arrows-alt-h" />
+    </template>
+  </sidebar-menu>
 </template>
  
 <script>
-const Vue = require('vue').default;
-
 export default {
-
   data() {
     return {
       menu: [
@@ -56,18 +57,8 @@ export default {
       ],
     };
   },
-  mounted() {
-    
-    setTimeout(() => {
-      let font_comp = Vue.extend("font-awesome-icon");
-      new font_comp({
-        propsData: {
-          icon: "arrows-alt-h",
-        },
-      }).$mount(".vsm--toggle-btn_default");
-    }, 50);
-  },
 };
 </script> 
+
 <style>
 </style>
