@@ -31,7 +31,7 @@
         <input class="form-control" v-model="Equipment[0].ElementalDamage" />
       </div>
       <div class="col-md">
-        <br/>
+        <br />
         <div class="form-check">
           <label class="form-check-label">
             <input
@@ -80,7 +80,7 @@
         <input class="form-control" v-model="Equipment[1].ElementalDamage" />
       </div>
       <div class="col-md">
-        <br/>
+        <br />
         <div class="form-check">
           <label class="form-check-label">
             <input
@@ -101,12 +101,21 @@
 
     <div class="row">提升: {{ FinalScore }} 倍</div>
     <div class="row">結果: (裝備1/裝備2)</div>
-    <div class="row">公式: (攻擊力+防禦*防禦轉換比)*(1+(爆級*爆傷))*(1+元素傷)</div>
+    <div class="row">
+      公式: (攻擊力+防禦*防禦轉換比)*(1+(爆級*爆傷))*(1+元素傷)
+    </div>
+    <div class="row">
+      <ImportBtn class="col-md-8" />
+      <ExportBtn :filename="filename" :model="Equipment" class="col-md-4" />
+    </div>
   </div>
 </template>
 
 <script>
 import { cloneDeep, round } from "lodash";
+import ExportBtn from "@/components/Tool/ExportBtn.vue";
+import ImportBtn from "@/components/Tool/ImportBtn.vue";
+
 let QLevelList = [40, 43, 46, 50, 53, 56, 60, 64, 68, 72, 76, 80, 85];
 let model = {
   ATK: 1000,
@@ -122,32 +131,49 @@ export default {
   props: {
     msg: String,
   },
+  components: {
+    ExportBtn,
+    ImportBtn,
+  },
   data() {
     return {
       QLevelList: QLevelList,
+      filename: "女僕裝備資料",
       Equipment: [cloneDeep(model), cloneDeep(model)],
     };
   },
   computed: {
     Score() {
       let QAddition = 0;
-      if(this.Equipment[0].IsSixConstellation) QAddition = 50;
+      if (this.Equipment[0].IsSixConstellation) QAddition = 50;
       return round(
         Number(
-          (Number(this.Equipment[0].ATK) +Number(this.Equipment[0].Defense * (this.Equipment[0].QLevel + QAddition ) / 100)) *
-          (1 +(this.Equipment[0].CriticalRate *this.Equipment[0].CriticalDamage) /10000) *
-          (1 + Number(this.Equipment[0].ElementalDamage) / 100)
+          (Number(this.Equipment[0].ATK) +
+            Number(
+              (this.Equipment[0].Defense *
+                (this.Equipment[0].QLevel + QAddition)) /
+                100
+            )) *
+            (1 +
+              (this.Equipment[0].CriticalRate *
+                this.Equipment[0].CriticalDamage) /
+                10000) *
+            (1 + Number(this.Equipment[0].ElementalDamage) / 100)
         ),
         2
       );
     },
     Score2() {
-       let QAddition = 0;
-      if(this.Equipment[1].IsSixConstellation) QAddition = 50;
+      let QAddition = 0;
+      if (this.Equipment[1].IsSixConstellation) QAddition = 50;
       return round(
         Number(
           (Number(this.Equipment[1].ATK) +
-            Number(this.Equipment[1].Defense *  (this.Equipment[1].QLevel + QAddition ) / 100)) *
+            Number(
+              (this.Equipment[1].Defense *
+                (this.Equipment[1].QLevel + QAddition)) /
+                100
+            )) *
             (1 +
               (this.Equipment[1].CriticalRate *
                 this.Equipment[1].CriticalDamage) /
@@ -161,7 +187,11 @@ export default {
       return round(this.Score / this.Score2, 2);
     },
   },
-  methods() {},
+  methods:{
+    SetModel(value){
+      this.Equipment = value;
+    },
+  },
 };
 </script>
 
