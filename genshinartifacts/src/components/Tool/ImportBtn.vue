@@ -5,13 +5,14 @@
   </div>
 </template>
 <script>
-export default {
+import { defineComponent } from "vue";
+export default defineComponent({
   name: "ImportBtn",
   props: ["model"],
-  data(){
-    return{
-      ImportModel:null,
-    }
+  data() {
+    return {
+      ImportModel: null,
+    };
   },
   methods: {
     OnClick() {
@@ -23,17 +24,18 @@ export default {
           return;
         }
         let reader = new FileReader();
+        let self = this;
         reader.readAsText(file, "utf8");
         reader.onload = function (evt) {
-          this.$parent.SetModel(evt.target.result);
-           alert("匯入成功");
-        };
+          self.$emit("setmodel",evt.target.result);
+          alert("匯入成功");
+        };        
       } catch (e) {
         alert(e);
       }
     },
   },
-};
+});
 </script>
 <style scoped>
 </style>

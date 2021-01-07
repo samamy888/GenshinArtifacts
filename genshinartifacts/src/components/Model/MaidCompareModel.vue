@@ -106,8 +106,8 @@
     </div>
     <div class="row">
       <ImportBtn class="col-md-8" />
-      <ExportBtn :filename="filename" :model="Equipment" class="col-md-4" />
-    </div>
+      <ExportBtn  class="col-md-4" :filename="filename" :model="Equipment" @setmodel="setmodel" />
+    </div> 
   </div>
 </template>
 
@@ -188,7 +188,7 @@ export default {
     },
   },
   methods:{
-    SetModel(value){
+    setmodel(value){
       this.Equipment = value;
     },
   },
