@@ -105,8 +105,8 @@
       公式: (攻擊力+防禦*防禦轉換比)*(1+(爆級*爆傷))*(1+元素傷)
     </div>
     <div class="row">
-      <ImportBtn class="col-md-8" />
-      <ExportBtn  class="col-md-4" :filename="filename" :model="Equipment" @setmodel="setmodel" />
+      <ImportBtn class="col-md-8" @setmodel="setmodel" />
+      <ExportBtn  class="col-md-4" :filename="filename" :model="Equipment"  />
     </div> 
   </div>
 </template>

@@ -27,7 +27,7 @@ export default defineComponent({
         let self = this;
         reader.readAsText(file, "utf8");
         reader.onload = function (evt) {
-          self.$emit("setmodel",evt.target.result);
+          self.$emit("setmodel",JSON.parse(evt.target.result));
           alert("匯入成功");
         };        
       } catch (e) {
