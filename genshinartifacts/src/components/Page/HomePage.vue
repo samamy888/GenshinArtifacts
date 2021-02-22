@@ -27,12 +27,17 @@ export default {
   data() {
     return {
       Title: "原神裝備比對",
-      Version:'V1.0.1',
       Update_Content:[
+        Content('V1.0.2',['新增localStorage存取','主頁增加版本更新資訊']),
         Content('V1.0.1',['新增女僕裝備比對','新增txt匯入匯出功能']),
         Content('V1.0.0',['新增一般裝備比對']),
-      ]
+      ],
     };
+  },
+   computed: {
+    Version() {
+      return this.Update_Content[0].V;
+    },
   },
 };
 </script>

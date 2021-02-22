@@ -52,8 +52,8 @@
     <div class="row">公式: 攻擊力*(1+(爆級*爆傷))*(1+元素傷)</div>
     <div class="row">
       <ImportBtn class="col-md-8" @setmodel="setmodel" />
-      <ExportBtn  class="col-md-4" :filename="filename" :model="Equipment"  />
-    </div> 
+      <ExportBtn class="col-md-4" :filename="filename" :model="Equipment" />
+    </div>
   </div>
 </template>
 
@@ -73,8 +73,22 @@ export default {
   },
   data() {
     return {
+      filename: "一般裝備資料",
       Equipment: [cloneDeep(model), cloneDeep(model)],
     };
+  },
+  mounted(){
+    let storage = localStorage.getItem('CompareModel');
+    if(storage!="null")
+      this.Equipment = JSON.parse(storage);
+  },
+  watch: {
+    Equipment: {
+      handler(newValue) {
+        localStorage.setItem('CompareModel', JSON.stringify(newValue));
+      },
+      deep: true,
+    },
   },
   computed: {
     Score() {
@@ -107,8 +121,8 @@ export default {
       return round(this.Score / this.Score2, 2);
     },
   },
-  methods:{
-    setmodel(value){
+  methods: {
+    setmodel(value) {
       this.Equipment = value;
     },
   },
@@ -116,7 +130,7 @@ export default {
 </script>
 
 <style scoped>
-.row{
-    margin-top: 20px;
+.row {
+  margin-top: 20px;
 }
 </style>

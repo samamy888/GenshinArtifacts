@@ -106,8 +106,8 @@
     </div>
     <div class="row">
       <ImportBtn class="col-md-8" @setmodel="setmodel" />
-      <ExportBtn  class="col-md-4" :filename="filename" :model="Equipment"  />
-    </div> 
+      <ExportBtn class="col-md-4" :filename="filename" :model="Equipment" />
+    </div>
   </div>
 </template>
 
@@ -135,6 +135,19 @@ export default {
       filename: "女僕裝備資料",
       Equipment: [cloneDeep(model), cloneDeep(model)],
     };
+  },
+  mounted() {
+    let storage = localStorage.getItem("MaidCompareModel");
+    if(storage!="null")
+      this.Equipment = JSON.parse(storage);
+  },
+  watch: {
+    Equipment: {
+      handler(newValue) {
+        localStorage.setItem("MaidCompareModel", JSON.stringify(newValue));
+      },
+      deep: true,
+    },
   },
   computed: {
     Score() {
@@ -181,8 +194,8 @@ export default {
       return round(this.Score / this.Score2, 2);
     },
   },
-  methods:{
-    setmodel(value){
+  methods: {
+    setmodel(value) {
       this.Equipment = value;
     },
   },
