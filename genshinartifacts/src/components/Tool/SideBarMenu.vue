@@ -34,7 +34,7 @@ export default {
         },
         {
           href: "/ComparePage",
-          title: "原神裝備比對",
+          title: "一般裝備比對",
           icon: {
             element: "font-awesome-icon",
             attributes: {

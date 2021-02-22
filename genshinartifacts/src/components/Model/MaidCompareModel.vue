@@ -113,8 +113,6 @@
 
 <script>
 import { cloneDeep, round } from "lodash";
-import ExportBtn from "@/components/Tool/ExportBtn.vue";
-import ImportBtn from "@/components/Tool/ImportBtn.vue";
 
 let QLevelList = [40, 43, 46, 50, 53, 56, 60, 64, 68, 72, 76, 80, 85];
 let model = {
@@ -130,10 +128,6 @@ export default {
   name: "CompareModel",
   props: {
     msg: String,
-  },
-  components: {
-    ExportBtn,
-    ImportBtn,
   },
   data() {
     return {

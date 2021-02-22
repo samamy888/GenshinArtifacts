@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="MT">
     <button class="btn btn-info" @click="OnClick()">匯出</button>
   </div>
 </template>
@@ -31,4 +31,7 @@ export default {
 };
 </script>
 <style scoped>
+.MT{
+  margin-top: 10px;
+}
 </style>

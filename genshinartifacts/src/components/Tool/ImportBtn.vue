@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="MT">
     <input type="file" id="ImportInput" />
     <button class="btn btn-info" @click="OnClick()">匯入</button>
   </div>
@@ -38,4 +38,7 @@ export default defineComponent({
 });
 </script>
 <style scoped>
+.MT{
+  margin-top: 10px;
+}
 </style>

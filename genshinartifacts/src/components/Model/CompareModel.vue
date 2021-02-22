@@ -50,6 +50,10 @@
     <div class="row">提升: {{ FinalScore }} 倍</div>
     <div class="row">結果: (裝備1/裝備2)</div>
     <div class="row">公式: 攻擊力*(1+(爆級*爆傷))*(1+元素傷)</div>
+    <div class="row">
+      <ImportBtn class="col-md-8" @setmodel="setmodel" />
+      <ExportBtn  class="col-md-4" :filename="filename" :model="Equipment"  />
+    </div> 
   </div>
 </template>
 
@@ -103,7 +107,11 @@ export default {
       return round(this.Score / this.Score2, 2);
     },
   },
-  methods() {},
+  methods:{
+    setmodel(value){
+      this.Equipment = value;
+    },
+  },
 };
 </script>
 
