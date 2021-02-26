@@ -47,7 +47,7 @@
       </div>
        <div class="col-md">
         大招等級:
-        <select class="form-control" v-model="Equipment[0].QLevel">
+        <select class="form-control" v-model="Equipment[1].QLevel">
           <option v-for="(key, index) in QLevelList" :key="key" :value="key">
             {{ index + 1 }}等: {{ key }}%
           </option>
