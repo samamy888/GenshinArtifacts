@@ -54,6 +54,17 @@ export default {
             },
           },
         },
+        {
+          href: "/ZhongLiComparePage",
+          title: "鐘離裝備比對",
+          icon: {
+            element: "font-awesome-icon",
+            attributes: {
+              // icon props:
+              icon: "cube",
+            },
+          },
+        },
       ],
     };
   },

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router"
 import Home from '@/components/Page/HomePage.vue'
 import ComparePage from '@/components/Page/ComparePage.vue'
 import MaidComparePage from '@/components/Page/MaidComparePage.vue'
+import ZhongLiComparePage from '@/components/Page/ZhongLiComparePage.vue'
 const routerHistory = createWebHistory('/GenshinArtifacts/');
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: "/MaidComparePage",
     name: "MaidComparePage",
     component: MaidComparePage,
+  },
+  {
+    path: "/ZhongLiComparePage",
+    name: "ZhongLiComparePage",
+    component: ZhongLiComparePage,
   },
 ];
 const router = createRouter({
